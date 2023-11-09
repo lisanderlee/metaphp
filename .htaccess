@@ -1,0 +1,17 @@
+<IfModule mod_rewrite.c>
+RewriteEngine on
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteCond %{SCRIPT_FILENAME} !-f
+
+RewriteRule ^([a-zA-Z0-9]*)$ index.php?mod=$1 [QSA]
+RewriteRule ^([a-zA-Z0-9]*)/([a-zA-Z0-9]*)$ index.php?mod=$1&id=$2 [QSA]
+</IfModule>
+
+
+ErrorDocument 403 index.php
+ErrorDocument 402 index.php 
+ErrorDocument 404 index.php
+ErrorDocument 401 index.php
+ErrorDocument 500 index.php
+ErrorDocument 505 index.php
+ErrorDocument 502 index.php
